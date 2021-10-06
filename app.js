@@ -4,8 +4,9 @@ const app = express();
 const PORT = process.env.PORT || 4000;
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
-// app.use(cors());
+app.use(cors());
 app.get("/", (req, res) => {
+  res.set("Access-Control-Allow-Origin", "*");
   res.json({
     Status: "200",
     body: "All OK",
